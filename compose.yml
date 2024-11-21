@@ -21,10 +21,6 @@ services:
   frontend:
     build: ./frontend
     container_name: frontend
-    environment:
-      - VITE_API_URL=${VITE_API_URL}
-    env_file:
-      - .env
     expose:
       - 3000
     depends_on:
