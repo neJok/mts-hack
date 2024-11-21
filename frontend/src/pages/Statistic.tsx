@@ -59,7 +59,7 @@ const Stats = () => {
 	                  ))}
 	                </div>
 	              </div>
-	              <div className="flex gap-6 mt-6 lg:mt-0">
+	              <div className="grid grid-cols-2 gap-6 mt-6 lg:mt-0">
 	                <StatCard icon={Film} label="Смотрит сейчас" value={fakeUser.stats.watching} />
 	                <StatCard icon={Clock} label="Просмотрено" value={fakeUser.stats.completed} />
 					<StatCard icon={Bomb} label="Ударный стрик" value={String(user?.streak_days)} />
