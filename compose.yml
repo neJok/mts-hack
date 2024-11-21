@@ -1,0 +1,80 @@
+services:
+  backend:
+    build: ./backend
+    container_name: backend
+    expose:
+      - 8000
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - DB_HOST=db
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+      - SECRET_KEY=${SECRET_KEY}
+    env_file:
+      - .env
+    networks:
+      - mynetwork
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    environment:
+      - VITE_API_URL=${VITE_API_URL}
+    env_file:
+      - .env
+    expose:
+      - 3000
+    depends_on:
+      - backend
+    networks:
+      - mynetwork
+
+  nginx:
+    build:
+      context: ./nginx
+    container_name: nginx
+    volumes:
+      - ./nginx/nginx.conf.template:/etc/nginx/nginx.conf.template
+    environment:
+      - SERVER_NAME=${SERVER_NAME}
+    env_file:
+      - .env
+    ports:
+      - 80:80
+    links:
+      - frontend
+      - backend
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - mynetwork
+
+  db:
+    image: postgres:15
+    restart: always
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+    expose:
+      - 5432
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${DB_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - mynetwork
+
+volumes:
+  db-data:
+
+networks:
+  mynetwork:
+    driver: bridge
