@@ -4,7 +4,7 @@ import AchievementCard from '../components/AchievementCard.tsx';
 import Header from "../components/Header.tsx";
 
 const Home = () => {
-  const movieData = Array(6).fill({
+  const movieData = Array(5).fill({
     title: 'Праздники',
     rating: 8,
     type: 'Бесплатно',
