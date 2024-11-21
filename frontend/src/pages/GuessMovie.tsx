@@ -13,7 +13,7 @@ const GuessMovie = () => {
 
 
   return (
-    <div className="px-[80px]">
+    <div className="px-[20px] lg:px-[80px]">
       <Header currentUrl="movie" />
       <div className="flex flex-col items-center justify-center gap-5">
         <span className="mt-5 text-2xl">Угадай фильм по кадру</span>

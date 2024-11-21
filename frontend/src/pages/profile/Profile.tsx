@@ -63,27 +63,32 @@ function PriseSpin() {
 	const [el, setEl] = useState(0)
 	const prises = [
 		{
-			url: 'https://avatars.mds.yandex.net/i?id=8cda61e05245de6852b732a66c930a306e97c4ce-4556252-images-thumbs&n=13'
-		},
-		{
-			url: 'https://avatars.mds.yandex.net/i?id=b293d54d58f65da280009032b7a99756ebe1deda-13239233-images-thumbs&n=13'
-		},
-		{
 			url: 'https://avatars.mds.yandex.net/i?id=f04def0913853e0865fe2f02db59041f38be8050-5109844-images-thumbs&n=13'
+		},
+		{
+			url: '/img/30.png'
+		},
+		{
+			url: '/img/film.png'
+		},
+		{
+			url: '/img/7.png'
 		},
 	]
 	useEffect(() => {
-		setInterval(() => {
-			setEl((el + 1) % prises.length)
-		}, 1000)
-	})
+		const interval = setInterval(() => {
+			setEl((el) => (el + 1) % prises.length);
+		}, 1000);
+	
+		return () => clearInterval(interval);
+	}, [prises.length]);
 	const handleClick = () => {
 
 	}
 	return (
 		<div className={styles.spin}>
 			<div className={styles.prises}>
-				<img src={prises[el].url} />
+				<img className="w-[345px]" src={prises[el].url} />
 			</div>
 			<button className={styles.button} onClick={() => handleClick()}>Получить приз</button>
 		</div>

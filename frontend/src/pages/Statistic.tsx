@@ -1,4 +1,4 @@
-import { Trophy, Film, Star, Clock } from 'lucide-react';
+import { Trophy, Film, Star, Clock, Bomb } from 'lucide-react';
 import MovieCard from "../components/MovieCard.tsx";
 import Header from "../components/Header.tsx";
 import {useRecoilState} from "recoil";
@@ -62,6 +62,7 @@ const Stats = () => {
 	              <div className="flex gap-6 mt-6 lg:mt-0">
 	                <StatCard icon={Film} label="Смотрит сейчас" value={fakeUser.stats.watching} />
 	                <StatCard icon={Clock} label="Просмотрено" value={fakeUser.stats.completed} />
+					<StatCard icon={Bomb} label="Ударный стрик" value={String(user?.streak_days)} />
 	              </div>
 	            </div>
 

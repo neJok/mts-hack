@@ -8,7 +8,7 @@ const Home = () => {
     title: 'Праздники',
     rating: 8,
     type: 'Бесплатно',
-    imageUrl: 'https://static.kion.ru/content/mts/series/66067000/posters/VERTICAL_d60dd2fbe9479db727bf4d58618ef888.webp?x=168&y=10&ar=keep'
+    imageUrl: 'https://htv-vsc.kion.ru:32130/CPS/images/universal/film/poster/202405/20240514/18/202405141130216205ln.jpeg?x=1344&y=10&ar=keep'
   });
 
   const achievements = [
@@ -58,7 +58,7 @@ const Home = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-[#0a0b17] text-white px-[80px]">
+    <div className="min-h-screen bg-[#0a0b17] text-white px-[20px] lg:px-[80px]">
       <Header currentUrl="main" />
 
       <main className="container mx-auto py-8">
@@ -73,7 +73,7 @@ const Home = () => {
 
         <section className="mb-12">
           <h2 className="text-2xl mb-6">Статистика достижения:</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {achievements.map((achievement, index) => (
               <AchievementCard key={index} {...achievement} />
             ))}
@@ -82,7 +82,7 @@ const Home = () => {
 
         <section>
           <h2 className="text-2xl mb-6">Наши игры и квизы:</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {games.map((game, index) => (
               <GameCard key={index} {...game} />
             ))}
