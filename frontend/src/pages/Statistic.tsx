@@ -15,16 +15,22 @@ const Stats = () => {
     },
     favoriteMovies: [
       {
-        title: "Начало",
-        poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=300"
+        title: "Смешарики. Начало",
+        poster: "https://static.kion.ru/content/mts/movies/70007475/posters/VERTICAL_cf579da0e77d41a36a7e4b542a730601.webp?x=500&y=10&ar=keep",
+		rating: 8,
+		type: "Бесплатно",
       },
       {
-        title: "Интерстеллар",
-        poster: "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=300"
+        title: "Астробой",
+        poster: "https://static.kion.ru/content/mts/movies/22743174/posters/VERTICAL_193d4c8bdd4cf82d7af5d40cf82cb6ee.webp?x=500&y=10&ar=keep",
+		rating: 8,
+		type: "По подписке",
       },
       {
-        title: "Матрица",
-        poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=300"
+        title: "Последний Богатырь",
+        poster: "https://static.kion.ru/content/mts/movies/70010362/posters/VERTICAL_8bcf474f97cb26efcdc7f9b04e2d4201.webp?x=500&y=10&ar=keep",
+		rating: 8,
+		type: "По подписке",
       }
     ],
     achievements: [
@@ -70,7 +76,7 @@ const Stats = () => {
 	              <h2 className="text-xl font-semibold text-white">Любимые фильмы</h2>
 	              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 	                {fakeUser.favoriteMovies.map((movie, index) => (
-	                  <MovieCard type="По подписке" key={index} title={movie.title} rating={4} imageUrl={movie.poster}/>
+	                  <MovieCard type={movie.type} key={index} title={movie.title} rating={movie.rating} imageUrl={movie.poster}/>
 	                ))}
 	              </div>
 	            </div>

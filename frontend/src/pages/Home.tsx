@@ -4,12 +4,38 @@ import AchievementCard from '../components/AchievementCard.tsx';
 import Header from "../components/Header.tsx";
 
 const Home = () => {
-  const movieData = Array(5).fill({
-    title: 'Праздники',
-    rating: 8,
-    type: 'Бесплатно',
-    imageUrl: 'https://htv-vsc.kion.ru:32130/CPS/images/universal/film/poster/202405/20240514/18/202405141130216205ln.jpeg?x=1344&y=10&ar=keep'
-  });
+  const movieData = [
+    {
+      title: 'Праздники',
+      rating: 8,
+      type: 'Бесплатно',
+      imageUrl: 'https://htv-vsc.kion.ru:32130/CPS/images/universal/film/poster/202405/20240514/18/202405141130216205ln.jpeg?x=1344&y=10&ar=keep'
+    },
+    {
+      title: 'Мастер и Маргарита',
+      rating: 7,
+      type: 'Подписка',
+      imageUrl: 'https://static.kion.ru/content/mts/movies/70014494/posters/VERTICAL_af320c5c86bc1bb697f36155dee3ebad.webp?x=500&y=10&ar=keep'
+    },
+    {
+      title: 'Дом дракона',
+      rating: 8,
+      type: 'Подписка',
+      imageUrl: 'https://static.kion.ru/content/amediateka/series/31294/posters/VERTICAL_f9cd5ee077e4886b9c1d1a453ab74b16.webp?x=500&y=10&ar=keep'
+    },
+    {
+      title: 'Игра престолов',
+      rating: 9,
+      type: 'Подписка',
+      imageUrl: 'https://static.kion.ru/content/amediateka/series/11223/posters/VERTICAL_5af36a6306ae4b51da79d81e7a7b60b1.webp?x=500&y=10&ar=keep'
+    },
+    {
+      title: 'Уроки китайского',
+      rating: 8,
+      type: 'Подписка',
+      imageUrl: 'https://static.kion.ru/content/amediateka/series/35018/posters/VERTICAL_f61ad56089b5cf7f3ec3ac5394d6b7b0.webp?x=500&y=10&ar=keep'
+    },
+  ]
 
   const achievements = [
     {

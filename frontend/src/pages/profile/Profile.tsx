@@ -4,7 +4,7 @@ import styles from "./index.module.css"
 import { useEffect, useState } from "react"
 import {useRecoilState} from "recoil";
 import {UserState} from "../../api/user.ts";
-
+import { motion } from "motion/react"
 
 
 export const Profile = () => {
@@ -59,7 +59,7 @@ export const Profile = () => {
 	)
 }
 
-function PriseSpin() {
+const PriseSpin = () => {
 	const [el, setEl] = useState(0)
 	const prises = [
 		{
@@ -77,20 +77,45 @@ function PriseSpin() {
 	]
 	useEffect(() => {
 		const interval = setInterval(() => {
-			setEl((el) => (el + 1) % prises.length);
-		}, 1000);
-	
-		return () => clearInterval(interval);
-	}, [prises.length]);
+			setEl((el + 1) % prises.length)
+		}, 1000)
+		return () => clearInterval(interval)
+	})
 	const handleClick = () => {
 
 	}
 	return (
 		<div className={styles.spin}>
-			<div className={styles.prises}>
-				<img className="w-[345px]" src={prises[el].url} />
-			</div>
+			<motion.div>
+				<Img prises={prises} el={el} />
+			</motion.div>
 			<button className={styles.button} onClick={() => handleClick()}>Получить приз</button>
+		</div>
+	)
+}
+
+interface Prise {
+	url: string
+}
+
+interface Props {
+	prises: Prise[]
+	el: number
+}
+
+function Img(props: Props) {
+	return (
+		<div className={styles.prises}>
+			<div className={styles.prises}>
+				<motion.img
+					key={props.el}
+					src={props.prises[props.el].url}
+					initial={{ opacity: 0, scale: 0.9 }}
+					animate={{ opacity: 1, scale: 1 }}
+					transition={{ duration: 0.5 }}
+					className="w-[355px]"
+				/>
+			</div>
 		</div>
 	)
 }

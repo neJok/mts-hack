@@ -24,7 +24,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ title, rating, type, imageUrl }) 
           <Star size={16} className="text-yellow-500" />
           <span>{rating}</span>
           <span className="text-gray-500">/</span>
-          <span className="text-[#51C26D]"> {type}</span>
+          <span className={type === 'Бесплатно'? "text-[#51C26D]" : "text-[#a86ea7]"}> {type}</span>
         </div>
       </div>
     </div>
