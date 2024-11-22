@@ -87,7 +87,7 @@ const PriseSpin = () => {
 		return () => clearInterval(interval)
 	}, [])
 	const handleClick = () => {
-		toast("Вы выиграли приз: Скидка 5% на подписку мтс премиум. Промокод: qN45gf4", {position: "top-right", autoClose: 10000})
+		toast("Вы выиграли приз: Скидка 5% на подписку мтс премиум. Промокод: qN45gf4", {position: "top-right", autoClose: 100000})
 		localStorage.setItem("prize", "true")
 		setActive(false)
 	}
