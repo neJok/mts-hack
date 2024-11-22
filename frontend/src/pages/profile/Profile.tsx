@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import {useRecoilState} from "recoil";
 import {UserState} from "../../api/user.ts";
 import { motion } from "motion/react"
+import { toast } from "react-toastify"
 
 
 export const Profile = () => {
@@ -86,6 +87,7 @@ const PriseSpin = () => {
 		return () => clearInterval(interval)
 	}, [])
 	const handleClick = () => {
+		toast("Вы выиграли приз: Скидка 5% на подписку мтс премиум. Промокод: qN45gf4", {position: "top-right", autoClose: 10000})
 		localStorage.setItem("prize", "true")
 		setActive(false)
 	}
