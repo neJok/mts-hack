@@ -61,6 +61,7 @@ export const Profile = () => {
 
 const PriseSpin = () => {
 	const [el, setEl] = useState(0)
+	const [isActive, setActive] = useState(true)
 	const prises = [
 		{
 			url: 'https://avatars.mds.yandex.net/i?id=f04def0913853e0865fe2f02db59041f38be8050-5109844-images-thumbs&n=13'
@@ -76,20 +77,24 @@ const PriseSpin = () => {
 		},
 	]
 	useEffect(() => {
+		if (localStorage.getItem('prize')) {
+			setActive(false)
+		}
 		const interval = setInterval(() => {
 			setEl((el + 1) % prises.length)
 		}, 1000)
 		return () => clearInterval(interval)
-	})
+	}, [])
 	const handleClick = () => {
-
+		localStorage.setItem("prize", "true")
+		setActive(false)
 	}
 	return (
 		<div className={styles.spin}>
 			<motion.div>
 				<Img prises={prises} el={el} />
 			</motion.div>
-			<button className={styles.button} onClick={() => handleClick()}>Получить приз</button>
+			<button className={styles.button} onClick={() => handleClick()} disabled={!isActive}>Получить приз</button>
 		</div>
 	)
 }
